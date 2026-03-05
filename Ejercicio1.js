@@ -9,4 +9,24 @@ Var:
 Let:
 Const:*/
 
-let user = "Camel Case";
+//Camel CASE
+let userName = "";
+// Pascal CASE
+let UserName = "";
+
+//Snake CASE
+let user_name = "";
+
+//Kebab CASE
+user - name;
+
+/**
+ * Empezamos con porque utilizariamos const o let o var
+ */
+
+//el var lo utilizaria como una variable sin restricciones de cambio , es decir , que incluso puedo
+// cambiarlo en el mismo bloque de codigo
+
+//el let es igual que el var , es decir , se puede modificar pero no puedes modificar la varibale en un mismo bloque de codigo
+
+// Y el const es para utilizarlo como una variable con valor pensado en que no cambie o fijo
