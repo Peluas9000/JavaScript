@@ -9,3 +9,4 @@ Var:
 Let:
 Const:*/
 
+let user = "Camel Case";
