@@ -10,12 +10,12 @@ Let:
 Const:*/
 
 //Camel CASE
-let userName = "Ayoub";
+let userName = "AYOUB";
 // Pascal CASE
-let UserName = "Ayoub";
+let UserName = "AYOUB";
 
 //Snake CASE
-let user_name = "Ayoub";
+let user_name = "AYOUB";
 
 //Kebab CASE
 
