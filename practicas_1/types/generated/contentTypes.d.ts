@@ -462,6 +462,101 @@ export interface ApiAnnouncementAnnouncement
   };
 }
 
+export interface ApiClaseClase extends Struct.CollectionTypeSchema {
+  collectionName: 'clases';
+  info: {
+    displayName: 'Clase';
+    pluralName: 'clases';
+    singularName: 'clase';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descripcion: Schema.Attribute.Blocks;
+    detalles: Schema.Attribute.Component<'shared.class-details', false>;
+    fecha_inicio: Schema.Attribute.Date;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::clase.clase'> &
+      Schema.Attribute.Private;
+    profesors: Schema.Attribute.Relation<'manyToMany', 'api::profeso.profeso'>;
+    publishedAt: Schema.Attribute.DateTime;
+    titulo: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEventoEvento extends Struct.CollectionTypeSchema {
+  collectionName: 'eventos';
+  info: {
+    displayName: 'Evento';
+    pluralName: 'eventos';
+    singularName: 'evento';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descripcion: Schema.Attribute.Blocks;
+    detalles: Schema.Attribute.Component<'shared.event-details', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::evento.evento'
+    > &
+      Schema.Attribute.Private;
+    materiales: Schema.Attribute.Component<'shared.material', true>;
+    profesors: Schema.Attribute.Relation<'manyToMany', 'api::profeso.profeso'>;
+    publishedAt: Schema.Attribute.DateTime;
+    temas: Schema.Attribute.Component<'shared.topic', true>;
+    title: Schema.Attribute.String & Schema.Attribute.Unique;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProfesoProfeso extends Struct.CollectionTypeSchema {
+  collectionName: 'profesos';
+  info: {
+    displayName: 'Profesores';
+    pluralName: 'profesos';
+    singularName: 'profeso';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    apellidos: Schema.Attribute.String;
+    clases: Schema.Attribute.Relation<'manyToMany', 'api::clase.clase'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    detalles: Schema.Attribute.Component<'shared.profesor-detail', false>;
+    email: Schema.Attribute.Email;
+    eventos: Schema.Attribute.Relation<'manyToMany', 'api::evento.evento'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::profeso.profeso'
+    > &
+      Schema.Attribute.Private;
+    nombre: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -974,6 +1069,9 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::announcement.announcement': ApiAnnouncementAnnouncement;
+      'api::clase.clase': ApiClaseClase;
+      'api::evento.evento': ApiEventoEvento;
+      'api::profeso.profeso': ApiProfesoProfeso;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

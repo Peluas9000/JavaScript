@@ -15,7 +15,7 @@ export default {
       path: "/announcements/reset-update-count",
       handler: "api::announcement.announcement.resetUpdateCount",
       config: {
-        auth: true, // Cámbialo a true si requieres JWT
+        auth: false, // Cámbialo a true si requieres JWT
       },
     },
   ],
