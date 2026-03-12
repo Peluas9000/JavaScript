@@ -17,11 +17,11 @@
     "slug": {
       "type": "string"
     },
-    "updateCount": {
-      "type": "integer"
-    },
     "message": {
       "type": "string"
+    },
+    "updateCount": {
+      "type": "integer"
     }
   }
 }

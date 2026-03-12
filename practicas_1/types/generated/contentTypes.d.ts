@@ -462,109 +462,6 @@ export interface ApiAnnouncementAnnouncement
   };
 }
 
-export interface ApiClassClass extends Struct.CollectionTypeSchema {
-  collectionName: 'classes';
-  info: {
-    displayName: 'Class';
-    pluralName: 'classes';
-    singularName: 'class';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.String;
-    detalles: Schema.Attribute.Component<'detalles.details', false>;
-    init_date: Schema.Attribute.Date;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::class.class'> &
-      Schema.Attribute.Private;
-    proffesors: Schema.Attribute.Relation<
-      'manyToMany',
-      'api::proffesor.proffesor'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiEventEvent extends Struct.CollectionTypeSchema {
-  collectionName: 'events';
-  info: {
-    displayName: 'Event';
-    pluralName: 'events';
-    singularName: 'event';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.String;
-    detalleEventos: Schema.Attribute.Component<'detalles.detailss', false>;
-    Dynamic_zone: Schema.Attribute.DynamicZone<
-      ['dinamic.dinamico', 'url.urls', 'galeria.gallery']
-    >;
-    gallery: Schema.Attribute.Component<'galeria.gallery', false>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::event.event'> &
-      Schema.Attribute.Private;
-    material: Schema.Attribute.Component<'materials.material', true>;
-    proffesors: Schema.Attribute.Relation<
-      'manyToMany',
-      'api::proffesor.proffesor'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    themes: Schema.Attribute.Component<'temas.theme', false>;
-    title: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    url: Schema.Attribute.Component<'url.urls', false>;
-  };
-}
-
-export interface ApiProffesorProffesor extends Struct.CollectionTypeSchema {
-  collectionName: 'proffesors';
-  info: {
-    displayName: 'Proffesor';
-    pluralName: 'proffesors';
-    singularName: 'proffesor';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    apellidos: Schema.Attribute.String;
-    classes: Schema.Attribute.Relation<'manyToMany', 'api::class.class'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    details: Schema.Attribute.Component<'detalles.details-profe', false>;
-    email: Schema.Attribute.Email;
-    events: Schema.Attribute.Relation<'manyToMany', 'api::event.event'>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::proffesor.proffesor'
-    > &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1077,9 +974,6 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::announcement.announcement': ApiAnnouncementAnnouncement;
-      'api::class.class': ApiClassClass;
-      'api::event.event': ApiEventEvent;
-      'api::proffesor.proffesor': ApiProffesorProffesor;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
