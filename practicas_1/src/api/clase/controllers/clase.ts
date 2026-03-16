@@ -21,9 +21,13 @@ export default factories.createCoreController(
 
         ctx.body = { message: "Profesor asignado correctamente", data };
       } catch (err: any) {
-        // Aquí es donde el usuario verá "El profesor ya imparte el máximo de 5 clases"
+        ("El profesor ya imparte el máximo de 5 clases");
         ctx.badRequest(err.message);
       }
-    },
+    }, 
+
+    async recuperar(){
+      
+    }
   }),
 );
