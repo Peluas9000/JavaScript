@@ -5,13 +5,14 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
 
-  compatibilityDate: "2025-01-01",
-
-  // Módulos
-  modules: ["@pinia/nuxt"],
+  compatibilityDate: "2025-07-15",
+  devtools: { enabled: true },
+  modules: ["@nuxt/a11y", "@nuxtjs/tailwindcss", "@pinia/nuxt"],
 
   // CSS global
-  css: ["~/assets/styles/reset.scss"],
+
+  // Aquí le decimos a Nuxt dónde está nuestro archivo CSS real
+  css: [".  /assets/css/main.css"],
 
   // Tailwind vía Vite plugin
   vite: {

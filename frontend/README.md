@@ -1,75 +1,32 @@
-# Nuxt Minimal Starter
+# nuxt-vue-exercises
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Proyecto de aprendizaje progresivo con 20 ejercicios.
 
-## Setup
+## Stack
 
-Make sure to install dependencies:
+- **Nuxt 4** — meta-framework SSR/SSG
+- **Vue 3** — Composition API
+- **TypeScript** — tipado estático (strict)
+- **SCSS** — preprocesador CSS con variables
+- **Pinia** — gestión de estado
+- **Tailwind CSS** — utilidades CSS
 
-```bash
-# npm
-npm install
+## Estructura
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+```
+app/
+├── assets/styles/   # Variables y reset SCSS
+├── components/      # Componentes reutilizables
+├── composables/     # Lógica reutilizable (useX)
+├── layouts/         # Plantillas de página
+├── pages/           # Rutas automáticas
+└── stores/          # Estado global Pinia
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+## Comandos
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+npm run dev      # Desarrollo
+npm run build    # Producción
+npm run lint     # Linter
 ```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
